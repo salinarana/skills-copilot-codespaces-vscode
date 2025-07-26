@@ -1,98 +1,173 @@
-<header>
+# Car Rental Management System
 
-![Deprecation Badge](https://img.shields.io/badge/Skills-Deprecated-333?logo=github&labelColor=454c54&color=bf8700)
+A comprehensive car rental management system built with Streamlit that features separate admin and user panels.
 
-This course has been deprecated. Please visit the [Getting Started with GitHub Copilot](https://github.com/skills/getting-started-with-github-copilot) exercise for the newest learning content.
+## Features
 
-<!--
-  <<< Author notes: Course header >>>
-  Read <https://skills.github.com/quickstart> for more information about how to build courses using this template.
-  Include a 1280×640 image, course name in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Next to "About", add description & tags; disable releases, packages, & environments.
-  Add your open source license, GitHub uses the MIT license.
--->
+### Admin Panel
+- **Dashboard**: View statistics about cars, bookings, and system overview
+- **Car Management**: Add, remove, and toggle availability of cars in the fleet
+- **Booking Management**: Approve or reject customer booking requests
+- **Real-time Updates**: All changes are saved and reflected immediately
 
-# Code with GitHub Copilot
+### User Panel
+- **Car Search**: Filter cars by make, type, location, and price
+- **Booking System**: Book cars with date selection and automatic pricing
+- **Booking Tracking**: View all bookings with status updates
+- **User Authentication**: Secure login and registration system
 
-_GitHub Copilot can help you code by offering autocomplete-style suggestions right in VS Code and Codespaces._
+## Installation
 
-</header>
-
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
--->
-
-## Step 1: Leverage Codespaces with VS Code for Copilot
-
-_Welcome to "Develop With AI Powered Code Suggestions Using GitHub Copilot and VS Code"! :wave:_
-
-GitHub Copilot is an AI pair programmer that helps you write code faster and with less work. It draws context from comments and code to suggest individual lines and whole functions instantly. GitHub Copilot is powered by OpenAI Codex, a generative pretrained language model created by OpenAI.
-
-**Copilot works with many code editors including VS Code, Visual Studio, JetBrains IDE, and Neovim.**
-
-Additionally, GitHub Copilot is trained on all languages that appear in public repositories. For each language, the quality of suggestions you receive may depend on the volume and diversity of training data for that language.
-
-Using Copilot inside a Codespace shows just how easy it is to get up and running with GitHub's suite of [Collaborative Coding](https://github.com/features#features-collaboration) tools.
-
-> **Note**
-> This skills exercise will focus on leveraging GitHub Codespace. It is recommended that you complete the GitHub skill, [Codespaces](https://github.com/skills/code-with-codespaces), before moving forward with this exercise.
-
-### :keyboard: Activity: Enable Copilot inside a Codespace
-
-**We recommend opening another browser tab to work through the following activities so you can keep these instructions open for reference.**
-
-Before you open up a codespace on a repository, you can create a development container and define specific extensions or configurations that will be used or installed in your codespace. Let's create this development container and add copilot to the list of extensions.
-
-1. Navigating back to your **Code** tab of your repository, click the **Add file** drop-down button, and then click `Create new file`.
-1. Type or paste the following in the empty text field prompt to name your file.
+1. Clone or download the project files
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
    ```
-   .devcontainer/devcontainer.json
+
+3. Run the application:
+   ```bash
+   streamlit run app.py
    ```
-1. In the body of the new **.devcontainer/devcontainer.json** file, add the following content:
-   ```
-   {
-       // Name this configuration
-       "name": "Codespace for Skills!",
-       "customizations": {
-           "vscode": {
-               "extensions": [
-                   "GitHub.copilot"
-               ]
-           }
-       }
-   }
-   ```
-1. Select the option to **Commit directly to the `main` branch**, and then click the **Commit new file** button.
-1. Navigate back to the home page of your repository by clicking the **Code** tab located at the top left of the screen.
-1. Click the **Code** button located in the middle of the page.
-1. Click the **Codespaces** tab on the box that pops up.
-1. Click the **Create codespace on main** button.
 
-   **Wait about 2 minutes for the codespace to spin itself up.**
+## Usage
 
-1. Verify your codespace is running. The browser should contain a VS Code web-based editor and a terminal should be present such as the below:
-   ![Screen Shot 2023-03-09 at 9 09 07 AM](https://user-images.githubusercontent.com/26442605/224102962-d0222578-3f10-4566-856d-8d59f28fcf2e.png)
-1. The `copilot` extension should show up in the VS Code extension list. Click the extensions sidebar tab. You should see the following:
-   ![Screen Shot 2023-03-09 at 9 04 13 AM](https://user-images.githubusercontent.com/26442605/224102514-7d6d2f51-f435-401d-a529-7bae3ae3e511.png)
+### First Time Setup
 
-**Wait about 60 seconds then refresh your repository landing page for the next step.**
+1. Run the application using `streamlit run app.py`
+2. Navigate to the registration tab
+3. Create an admin account by selecting "admin" as the account type
+4. Create user accounts by selecting "user" as the account type
 
-<footer>
+### Admin Access
 
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+1. Login with an admin account
+2. Access the admin dashboard to:
+   - View system statistics
+   - Manage the car fleet
+   - Approve/reject booking requests
+   - Add new cars to the system
 
----
+### User Access
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/code-with-copilot) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+1. Login with a user account
+2. Search and filter available cars
+3. Book cars by selecting dates
+4. Track your bookings and their approval status
 
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+## System Architecture
 
-</footer>
+### Data Storage
+- User data is stored in `users.json`
+- Car data is stored in `cars.json`
+- Booking data is stored in `bookings.json`
+
+### User Roles
+- **Admin**: Full access to manage cars and bookings
+- **User**: Can search cars and make booking requests
+
+### Booking Workflow
+1. User searches for available cars
+2. User selects dates and submits booking request
+3. Booking status is set to "pending"
+4. Admin reviews and approves/rejects the booking
+5. User can view updated booking status
+
+## File Structure
+
+```
+├── app.py              # Main application file
+├── requirements.txt    # Python dependencies
+├── README.md          # This file
+├── users.json         # User data (auto-generated)
+├── cars.json          # Car data (auto-generated)
+└── bookings.json      # Booking data (auto-generated)
+```
+
+## Features Included
+
+### Authentication System
+- Secure password hashing using SHA-256
+- User registration with email validation
+- Session management
+- Role-based access control
+
+### Car Management
+- Add new cars to the fleet
+- Toggle car availability
+- Remove cars from the fleet
+- Filter cars by various criteria
+
+### Booking System
+- Date-based booking
+- Automatic price calculation
+- Booking status tracking
+- Admin approval workflow
+
+### User Interface
+- Responsive design
+- Modern CSS styling
+- Font Awesome icons
+- Intuitive navigation
+
+## Sample Data
+
+The system comes with 15 sample cars including:
+- Various makes: Toyota, Honda, BMW, Mercedes, Tesla, etc.
+- Different types: Sedan, SUV, Hatchback
+- Price range: $55-$180 per day
+- Multiple locations: Downtown, Airport
+
+## Default Admin Account
+
+For testing purposes, you can create an admin account during registration by:
+1. Going to the Register tab
+2. Filling in the required information
+3. Selecting "admin" from the Account Type dropdown
+
+## Technical Details
+
+### Dependencies
+- **Streamlit**: Web application framework
+- **Pandas**: Data manipulation and analysis
+- **NumPy**: Numerical computing
+- **Hashlib**: Password hashing (built-in)
+- **JSON**: Data storage (built-in)
+- **Datetime**: Date handling (built-in)
+
+### Security Features
+- Password hashing for secure storage
+- Session-based authentication
+- Role-based access control
+- Input validation
+
+## Customization
+
+### Adding More Car Types
+Edit the `car_type` selectbox options in the admin panel's "Add New Car" form.
+
+### Modifying Locations
+Update the `location` selectbox options in both the car addition form and search filters.
+
+### Styling Changes
+Modify the CSS in the `local_css()` function to customize the appearance.
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Application won't start**: Make sure all dependencies are installed
+2. **Data not persisting**: Check file permissions in the application directory
+3. **Login issues**: Verify username and password are correct
+
+### Data Reset
+
+To reset all data, simply delete the JSON files:
+- `users.json`
+- `cars.json`
+- `bookings.json`
+
+The application will regenerate sample data on the next run.
+
+## Support
+
+For issues or questions, please check the application logs in the Streamlit interface or review the console output for error messages.
